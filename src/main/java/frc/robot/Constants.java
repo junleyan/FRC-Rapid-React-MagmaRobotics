@@ -13,12 +13,21 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+    //drive IDs
     public static int LEFT_DRIVE_ID = 0;
     public static int RIGHT_DRIVE_ID = 1;
-    public static double LEFT_DRIVE_MULTIPLIER = 0.625;
-    public static double RIGHT_DRIVE_MULTIPLIER = 0.65;
+    public static double LEFT_DRIVE_MULTIPLIER = 1;
+    public static double RIGHT_DRIVE_MULTIPLIER = 1;
 
+    //controller IDs
     public static int CONTROLLER_PORT = 0;
     public static int LEFT_JOYSTICK_CHANNEL_ID = 1;
     public static int RIGHT_JOYSTICK_CHANNEL_ID = 3;
+    public static int X_BUTTON_ID = 1;
+    public static int A_BUTTON_ID = 2;
+    public static int B_BUTTON_ID = 3;
+    public static int Y_BUTTON_ID = 4;
+
+    //motor IDs
+    public static int LIFT_ID = 2;
 }

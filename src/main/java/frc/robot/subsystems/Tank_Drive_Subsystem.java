@@ -29,6 +29,12 @@ public class Tank_Drive_Subsystem extends SubsystemBase {
     MotorL.set(0);
     MotorR.set(0);
   }
+  
+  public void driveOn()
+  {
+    MotorL.set(0.4);
+    MotorR.set(0.4);
+  }
 
   public void tankDrive(double speedL, double speedR)
   {

@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.Lift_On;
 import frc.robot.commands.Lift_Reverse;
+import frc.robot.commands.Auto_Forward;
 import frc.robot.commands.Lift_Off;
 import frc.robot.commands.Tank_Drive_Command;
 import frc.robot.subsystems.Lift_Subsystem;
@@ -27,6 +28,7 @@ public class RobotContainer {
   public static Tank_Drive_Subsystem TankDrive;
   public static Tank_Drive_Command driving;
   public static Lift_Subsystem Lift;
+  
 
   static Joystick stick0;
 
@@ -35,6 +37,7 @@ public class RobotContainer {
     // Configure the button bindings
     TankDrive = new Tank_Drive_Subsystem();
     Lift = new Lift_Subsystem();
+
     configureButtonBindings();
   }
 
@@ -56,6 +59,7 @@ public class RobotContainer {
     
     B_Button.whileHeld(new Lift_Reverse());
     B_Button.whenReleased(new Lift_Off());
+
   }
 
   public static double getLeftStickY()
@@ -74,9 +78,7 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return null;
-    // An ExampleCommand will run in autonomous
-    //m_autoCommand;
+    return new Auto_Forward(1500);
   }
 
   public Command getDriving() 

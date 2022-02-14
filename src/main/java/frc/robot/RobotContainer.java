@@ -82,8 +82,10 @@ public class RobotContainer {
       .whenPressed(new Rotate_Intake_Out());
     new POVButton(stick0, 0)
       .whenPressed(new Hook_Up());
+      .whenReleased(new Hook_Off());
     new POVButton(stick0, 180)
       .whenPressed(new Hook_Down());
+      .whenReleased(new Hook_Off());
   }
 
   public static double getLeftStickY()
@@ -103,10 +105,10 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     return new SequentialCommandGroup(
-      //new Auto_Drive(1500, 0.4), 
-      //new Spin_Cargo(),
-      //new Spin_Cargo_Opposite(),
-      //new Auto_Drive(1500, -0.4)
+      new Auto_Drive(1500, 0.4), 
+      new Spin_Cargo(),
+      new Spin_Cargo_Opposite(),
+      new Auto_Drive(1500, -0.4)
       );
   }
 

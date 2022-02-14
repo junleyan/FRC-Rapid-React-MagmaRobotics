@@ -1,5 +1,3 @@
-
-
 package frc.robot.commands;
 
 import frc.robot.RobotContainer;
@@ -17,14 +15,9 @@ public class Hook_Up extends CommandBase {
     RobotContainer.Hook.hookUp();
   }
 
-  @Override
-  public void end(boolean interrupted) {
-    RobotContainer.Hook.hookOff();
-  }
-
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return !RobotContainer.Hook.top_limit.get();
+    return false;
   }
 }

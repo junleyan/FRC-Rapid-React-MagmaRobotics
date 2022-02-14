@@ -4,15 +4,15 @@ import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class Hook_Down extends CommandBase {
-  public Hook_Down() {
+public class Hook_Off extends CommandBase {
+  public Hook_Off() {
     addRequirements(RobotContainer.Hook);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    RobotContainer.Hook.hookDown();
+    RobotContainer.Hook.hookOff();
   }
 
   // Returns true when the command should end.

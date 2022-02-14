@@ -7,15 +7,25 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.Lift_On;
-import frc.robot.commands.Lift_Reverse;
-import frc.robot.commands.Auto_Forward;
-import frc.robot.commands.Lift_Off;
+import frc.robot.commands.Hook_Down;
+import frc.robot.commands.Hook_Up;
+import frc.robot.commands.Intake_Off;
+import frc.robot.commands.Intake_On;
+import frc.robot.commands.Intake_Reverse;
+import frc.robot.commands.Rotate_Intake_In;
+import frc.robot.commands.Rotate_Intake_Out;
+import frc.robot.commands.Spin_Cargo;
+import frc.robot.commands.Spin_Cargo_Opposite;
 import frc.robot.commands.Tank_Drive_Command;
-import frc.robot.subsystems.Lift_Subsystem;
+import frc.robot.subsystems.Cargo_Subsystem;
+import frc.robot.subsystems.Hook_Subsystem;
+import frc.robot.subsystems.Intake_Subsystem;
+import frc.robot.subsystems.Rotate_Intake_Subsystem;
 import frc.robot.subsystems.Tank_Drive_Subsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.POVButton;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -27,16 +37,21 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public static Tank_Drive_Subsystem TankDrive;
   public static Tank_Drive_Command driving;
-  public static Lift_Subsystem Lift;
+  public static Intake_Subsystem Intake;
+  public static Cargo_Subsystem Cargo;
+  public static Rotate_Intake_Subsystem RotIntk;
+  public static Hook_Subsystem Hook;
   
-
   static Joystick stick0;
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     TankDrive = new Tank_Drive_Subsystem();
-    Lift = new Lift_Subsystem();
+    Intake = new Intake_Subsystem();
+    Cargo = new Cargo_Subsystem();
+    RotIntk = new Rotate_Intake_Subsystem();
+    Hook = new Hook_Subsystem();
 
     configureButtonBindings();
   }
@@ -51,15 +66,24 @@ public class RobotContainer {
     stick0 = new Joystick(Constants.CONTROLLER_PORT);
     TankDrive.setDefaultCommand(new Tank_Drive_Command());
 
-    final JoystickButton A_Button = new JoystickButton(stick0, Constants.A_BUTTON_ID);
-    final JoystickButton B_Button = new JoystickButton(stick0, Constants.B_BUTTON_ID);
-
-    A_Button.whileHeld(new Lift_On());
-    A_Button.whenReleased(new Lift_Off());
-    
-    B_Button.whileHeld(new Lift_Reverse());
-    B_Button.whenReleased(new Lift_Off());
-
+    new JoystickButton(stick0, Constants.A_BUTTON_ID)
+      .whileHeld(new Intake_On())
+      .whenReleased(new Intake_Off());
+    new JoystickButton(stick0, Constants.B_BUTTON_ID)
+      .whileHeld(new Intake_Reverse())
+      .whenReleased(new Intake_Off());
+    new JoystickButton(stick0, Constants.X_BUTTON_ID)
+      .whenPressed(new Spin_Cargo());
+    new JoystickButton(stick0, Constants.Y_BUTTON_ID)
+      .whenPressed(new Spin_Cargo_Opposite());
+    new JoystickButton(stick0, Constants.LEFT_BUMPER_ID)
+      .whenPressed(new Rotate_Intake_In());
+    new JoystickButton(stick0, Constants.RIGHT_BUMPER_ID)
+      .whenPressed(new Rotate_Intake_Out());
+    new POVButton(stick0, 0)
+      .whenPressed(new Hook_Up());
+    new POVButton(stick0, 180)
+      .whenPressed(new Hook_Down());
   }
 
   public static double getLeftStickY()
@@ -78,7 +102,12 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return new Auto_Forward(1500);
+    return new SequentialCommandGroup(
+      //new Auto_Drive(1500, 0.4), 
+      //new Spin_Cargo(),
+      //new Spin_Cargo_Opposite(),
+      //new Auto_Drive(1500, -0.4)
+      );
   }
 
   public Command getDriving() 

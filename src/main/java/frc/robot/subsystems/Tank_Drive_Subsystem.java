@@ -1,6 +1,4 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
+//tank drive subsystem, sends power to motors
 
 package frc.robot.subsystems;
 
@@ -32,8 +30,8 @@ public class Tank_Drive_Subsystem extends SubsystemBase {
   
   public void driveOn()
   {
-    MotorL.set(0.4);
-    MotorR.set(0.4);
+    MotorL.set(0.5);
+    MotorR.set(0.5);
   }
 
   public void tankDrive(double speedL, double speedR)
@@ -44,4 +42,3 @@ public class Tank_Drive_Subsystem extends SubsystemBase {
       );
   }
 }
-

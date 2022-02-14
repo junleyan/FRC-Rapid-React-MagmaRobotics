@@ -27,7 +27,20 @@ public final class Constants {
     public static int A_BUTTON_ID = 2;
     public static int B_BUTTON_ID = 3;
     public static int Y_BUTTON_ID = 4;
+    public static int LEFT_BUMPER_ID = 5;
+    public static int RIGHT_BUMPER_ID = 6;
 
     //motor IDs
-    public static int LIFT_ID = 2;
+    public static int INTAKE_ID = 2;  
+    public static int DUMP_ID = 3;
+    public static int ROT_INTK_ID = 4;
+    public static int HOOK_ID = 5;
+
+    //limit switch IDs
+    public static int BOT_CARGO_SWITCH_ID = 0;
+    public static int TOP_CARGO_SWITCH_ID = 1;
+    public static int BOT_ROTATE_INTK_ID = 2;
+    public static int TOP_ROTATE_INTK_ID = 3;
+    public static int BOT_HOOK_SWITCH_ID = 4;
+    public static int TOP_HOOK_SWITCH_ID = 5;
 }

@@ -4,11 +4,13 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.Joystick;
+//import edu.wpi.first.wpilibj.GenericHID;
+//import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.Auto_Drive;
 import frc.robot.commands.Hook_Down;
 import frc.robot.commands.Hook_Up;
+import frc.robot.commands.Hook_Off;
 import frc.robot.commands.Intake_Off;
 import frc.robot.commands.Intake_On;
 import frc.robot.commands.Intake_Reverse;
@@ -34,7 +36,7 @@ import edu.wpi.first.wpilibj2.command.button.POVButton;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
+  // The robot's subsystems and commands are defined here
   public static Tank_Drive_Subsystem TankDrive;
   public static Tank_Drive_Command driving;
   public static Intake_Subsystem Intake;
@@ -42,7 +44,7 @@ public class RobotContainer {
   public static Rotate_Intake_Subsystem RotIntk;
   public static Hook_Subsystem Hook;
   
-  static Joystick stick0;
+  static XboxController stick0;
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -63,7 +65,7 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    stick0 = new Joystick(Constants.CONTROLLER_PORT);
+    stick0 = new XboxController(Constants.CONTROLLER_PORT);
     TankDrive.setDefaultCommand(new Tank_Drive_Command());
 
     new JoystickButton(stick0, Constants.A_BUTTON_ID)
@@ -81,10 +83,10 @@ public class RobotContainer {
     new JoystickButton(stick0, Constants.RIGHT_BUMPER_ID)
       .whenPressed(new Rotate_Intake_Out());
     new POVButton(stick0, 0)
-      .whenPressed(new Hook_Up());
+      .whenPressed(new Hook_Up())
       .whenReleased(new Hook_Off());
     new POVButton(stick0, 180)
-      .whenPressed(new Hook_Down());
+      .whenPressed(new Hook_Down())
       .whenReleased(new Hook_Off());
   }
 

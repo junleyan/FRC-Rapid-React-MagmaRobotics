@@ -13,34 +13,34 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    //drive IDs
-    public static int LEFT_DRIVE_ID = 0;
-    public static int RIGHT_DRIVE_ID = 1;
-    public static double LEFT_DRIVE_MULTIPLIER = 1;
-    public static double RIGHT_DRIVE_MULTIPLIER = 1;
+    //drive multiplier
+    public static final double LEFT_DRIVE_MULTIPLIER = -0.75;
+    public static final double RIGHT_DRIVE_MULTIPLIER = 0.75;
 
     //controller IDs
-    public static int CONTROLLER_PORT = 0;
-    public static int LEFT_JOYSTICK_CHANNEL_ID = 1;
-    public static int RIGHT_JOYSTICK_CHANNEL_ID = 3;
-    public static int X_BUTTON_ID = 1;
-    public static int A_BUTTON_ID = 2;
-    public static int B_BUTTON_ID = 3;
-    public static int Y_BUTTON_ID = 4;
-    public static int LEFT_BUMPER_ID = 5;
-    public static int RIGHT_BUMPER_ID = 6;
+    public static final int CONTROLLER_PORT = 0;
+    public static final int LEFT_JOYSTICK_CHANNEL_ID = 1;
+    public static final int RIGHT_JOYSTICK_CHANNEL_ID = 5;
+    public static final int A_BUTTON_ID = 1;
+    public static final int B_BUTTON_ID = 2;
+    public static final int X_BUTTON_ID = 3;
+    public static final int Y_BUTTON_ID = 4;
+    public static final int LEFT_BUMPER_ID = 5;
+    public static final int RIGHT_BUMPER_ID = 6;
 
     //motor IDs
-    public static int INTAKE_ID = 2;  
-    public static int DUMP_ID = 3;
-    public static int ROT_INTK_ID = 4;
-    public static int HOOK_ID = 5;
+    public static final int LEFT_DRIVE_ID = 0;
+    public static final int RIGHT_DRIVE_ID = 1;
+    public static final int INTAKE_ID = 2;  
+    public static final int DUMP_ID = 3;
+    public static final int ROT_INTK_ID = 4;
+    public static final int HOOK_ID = 5;
 
     //limit switch IDs
-    public static int BOT_CARGO_SWITCH_ID = 0;
-    public static int TOP_CARGO_SWITCH_ID = 1;
-    public static int BOT_ROTATE_INTK_ID = 2;
-    public static int TOP_ROTATE_INTK_ID = 3;
-    public static int BOT_HOOK_SWITCH_ID = 4;
-    public static int TOP_HOOK_SWITCH_ID = 5;
+    public static final int BOT_CARGO_SWITCH_ID = 0;
+    public static final int TOP_CARGO_SWITCH_ID = 1;
+    public static final int BOT_ROTATE_INTK_ID = 2;
+    public static final int TOP_ROTATE_INTK_ID = 3;
+    public static final int BOT_HOOK_SWITCH_ID = 4;
+    public static final int TOP_HOOK_SWITCH_ID = 5;
 }

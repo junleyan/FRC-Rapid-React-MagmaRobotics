@@ -9,6 +9,11 @@ public class Hook_Off extends CommandBase {
     addRequirements(RobotContainer.Hook);
   }
 
+  @Override
+  public void initialize() {
+    RobotContainer.Hook.hookOff();
+  }
+
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {

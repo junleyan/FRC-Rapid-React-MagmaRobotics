@@ -11,6 +11,11 @@ public class Rotate_Intake_Out extends CommandBase {
     addRequirements(RobotContainer.RotIntk);
   }
 
+  @Override
+  public void initialize() {
+    RobotContainer.RotIntk.rotIntkOff();
+  }
+
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {

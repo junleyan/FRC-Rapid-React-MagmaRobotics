@@ -22,7 +22,7 @@ public class Cargo_Subsystem extends SubsystemBase {
   public void stopCargo() {
     dump_motor.set(0.0);
   }
-
+  
   public void toggleCargoUp(){
     dump_motor.set(0.5);
   }

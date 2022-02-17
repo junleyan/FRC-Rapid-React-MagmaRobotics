@@ -15,6 +15,13 @@ public class Tank_Drive_Command extends CommandBase {
     addRequirements(RobotContainer.TankDrive);
   }
 
+  @Override
+  public void initialize() {
+    stickL = RobotContainer.getLeftStickY();
+    stickR = RobotContainer.getRightStickY();
+    RobotContainer.TankDrive.driveOff();
+  }
+
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {

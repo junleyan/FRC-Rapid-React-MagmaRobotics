@@ -13,7 +13,7 @@ public class Hook_Subsystem extends SubsystemBase {
     {
         hook = new Spark(Constants.HOOK_ID);
     }
-
+    
     public void hookUp()
     {
         hook.set(0.5);
@@ -27,10 +27,5 @@ public class Hook_Subsystem extends SubsystemBase {
     public void hookDown()
     {
         hook.set(-0.5);
-    }
-
-    @Override
-    public void periodic() {
-    // This method will be called once per scheduler run
     }
 }

@@ -11,6 +11,11 @@ public class Spin_Cargo extends CommandBase {
     addRequirements(RobotContainer.Cargo);
   }
 
+  @Override
+  public void initialize() {
+    RobotContainer.Cargo.stopCargo();
+  }
+
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {

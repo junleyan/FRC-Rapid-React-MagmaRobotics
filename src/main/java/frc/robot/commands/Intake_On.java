@@ -12,6 +12,7 @@ public class Intake_On extends CommandBase{
 
     @Override
     public void initialize() {
+      RobotContainer.Intake.intakeOff();
     }
   
     // Called every time the scheduler runs while the command is scheduled.

@@ -1,9 +1,10 @@
+//command to move lift up (out of chassis)
+
 package frc.robot.commands;
 
 import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-/** An example command that uses an example subsystem. */
 public class Hook_Up extends CommandBase {
   public Hook_Up() {
     addRequirements(RobotContainer.Hook);

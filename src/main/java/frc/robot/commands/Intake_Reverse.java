@@ -1,4 +1,4 @@
-//spits out intake motor
+//command to make intake spit out ball (hence reverse)
 
 package frc.robot.commands;
 

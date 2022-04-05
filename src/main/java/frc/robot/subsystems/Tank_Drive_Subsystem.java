@@ -10,32 +10,21 @@ import frc.robot.Constants;
 
 public class Tank_Drive_Subsystem extends SubsystemBase {
   private MotorController MotorL, MotorR;
-
   public DifferentialDrive diffDrive;
 
-  /** Creates a new ExampleSubsystem. */
-  public Tank_Drive_Subsystem() 
-  {
+  public Tank_Drive_Subsystem() {
     MotorL = new PWMSparkMax(Constants.LEFT_DRIVE_ID);
     MotorR = new PWMSparkMax(Constants.RIGHT_DRIVE_ID);
 
     diffDrive = new DifferentialDrive(MotorL, MotorR);
   }
-
-  public void driveOff()
-  {
+  
+  public void driveOff(){
     MotorL.set(0);
     MotorR.set(0);
   }
-  
-  public void driveOn()
-  {
-    MotorL.set(0.5);
-    MotorR.set(0.5);
-  }
 
-  public void tankDrive(double speedL, double speedR)
-  {
+  public void tankDrive(double speedL, double speedR){
     diffDrive.tankDrive(
       speedL * Constants.LEFT_DRIVE_MULTIPLIER, 
       speedR * Constants.RIGHT_DRIVE_MULTIPLIER

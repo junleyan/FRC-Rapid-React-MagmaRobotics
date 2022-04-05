@@ -1,14 +1,11 @@
-//pulls cargo dump tray back down
+//command to pull dump down towards chassis
 
 package frc.robot.commands;
 
 import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-/** An example command that uses an example subsystem. */
 public class Spin_Cargo_Opposite extends CommandBase {
-  
-  public double stickL, stickR;
   public Spin_Cargo_Opposite() {
     addRequirements(RobotContainer.Cargo);
   }
@@ -21,7 +18,7 @@ public class Spin_Cargo_Opposite extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      RobotContainer.Cargo.toggleCargoDown();
+    RobotContainer.Cargo.toggleCargoDown();
   }
 
   @Override
@@ -32,6 +29,6 @@ public class Spin_Cargo_Opposite extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return !RobotContainer.Cargo.bot_limit.get();
+    return false; //!RobotContainer.Cargo.bot_limit.get();
   }
 }

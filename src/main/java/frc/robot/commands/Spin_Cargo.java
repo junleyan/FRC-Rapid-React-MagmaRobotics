@@ -1,11 +1,10 @@
-//pushes cargo dump tray upwards
+//command to make dump tray push up, leading to balls rolling out
 
 package frc.robot.commands;
 
 import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-/** An example command that uses an example subsystem. */
 public class Spin_Cargo extends CommandBase {
   public Spin_Cargo() {
     addRequirements(RobotContainer.Cargo);
@@ -30,6 +29,6 @@ public class Spin_Cargo extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return !RobotContainer.Cargo.top_limit.get();
+    return false; //!RobotContainer.Cargo.top_limit.get();
   }
 }

@@ -8,23 +8,20 @@ import edu.wpi.first.wpilibj.motorcontrol.Spark;
 
 public class Intake_Subsystem extends SubsystemBase {
     private Spark intake;
-    public Intake_Subsystem() 
-    {
+    
+    public Intake_Subsystem() {
         intake = new Spark(Constants.INTAKE_ID);
     }
 
-    public void intakeOn()
-    {
-        intake.set(0.5);
+    public void intakeOn(){
+        intake.set(1.0);
     }
 
-    public void intakeOff()
-    {
+    public void intakeOff(){
         intake.set(0.0);
     }
 
-    public void intakeReverse()
-    {
-        intake.set(-0.5);
+    public void intakeReverse(){
+        intake.set(-1.0);
     }
 }

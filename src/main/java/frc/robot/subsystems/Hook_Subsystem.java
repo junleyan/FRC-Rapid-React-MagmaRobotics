@@ -1,4 +1,4 @@
-//subsystem for entire hook mechanism
+//subsystem for entire lift mechanism
 
 package frc.robot.subsystems;
 
@@ -9,23 +9,19 @@ import edu.wpi.first.wpilibj.motorcontrol.Spark;
 public class Hook_Subsystem extends SubsystemBase {
     private Spark hook;
 
-    public Hook_Subsystem() 
-    {
+    public Hook_Subsystem() {
         hook = new Spark(Constants.HOOK_ID);
     }
     
-    public void hookUp()
-    {
+    public void hookUp(){
         hook.set(0.5);
     }
 
-    public void hookOff()
-    {
+    public void hookOff(){
         hook.set(0.0);
     }
 
-    public void hookDown()
-    {
+    public void hookDown(){
         hook.set(-0.5);
     }
 }

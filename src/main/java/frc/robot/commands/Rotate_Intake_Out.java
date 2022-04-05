@@ -1,11 +1,10 @@
-//turns out intake mechanism
+//command to make intake flipper flop out of chassis
 
 package frc.robot.commands;
 
 import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-/** An example command that uses an example subsystem. */
 public class Rotate_Intake_Out extends CommandBase {
   public Rotate_Intake_Out() {
     addRequirements(RobotContainer.RotIntk);
@@ -22,14 +21,9 @@ public class Rotate_Intake_Out extends CommandBase {
     RobotContainer.RotIntk.rotIntkOut();
   }
 
-  @Override
-  public void end(boolean interrupted) {
-    RobotContainer.RotIntk.rotIntkOff();
-  }
-
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return !RobotContainer.RotIntk.top_limit.get();
+    return false;
   }
 }

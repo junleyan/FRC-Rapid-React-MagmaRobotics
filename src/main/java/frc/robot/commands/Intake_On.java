@@ -1,4 +1,4 @@
-//intake pull inwards
+//command to make intake pull balls inward
 
 package frc.robot.commands;
 

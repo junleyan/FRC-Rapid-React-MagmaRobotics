@@ -1,4 +1,4 @@
-//intake stop
+//command to stop intake 
 
 package frc.robot.commands;
 

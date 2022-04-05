@@ -28,16 +28,15 @@ public final class Constants {
     public static final int Y_BUTTON_ID = 4;
     public static final int LEFT_BUMPER_ID = 5;
     public static final int RIGHT_BUMPER_ID = 6;
-    public static final int LEFT_TRIGGER_CHANNEL_ID = 2;
-    public static final int RIGHT_TRIGGER_CHANNEL_ID = 3;
 
     //PWM IDs
     public static final int LEFT_DRIVE_ID = 0;
     public static final int RIGHT_DRIVE_ID = 1;
-    public static final int INTAKE_ID = 2;  
-    public static final int DUMP_ID = 3;
-    public static final int ROT_INTK_ID = 4; //Intake Flipper
+    public static final int FEED_ID = 2; 
+    public static final int ROT_INTK_ID = 3; //Intake Flipper
+    public static final int INTAKE_ID = 4;
     public static final int HOOK_ID = 5; //Lift
+    public static final int FLYWHEEL_ID = 6;
 
     //DIO IDs
     /*

@@ -1,29 +1,27 @@
-//commands for autonomous dump
-
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 
-public class Auto_Dump_Down extends CommandBase{
+public class Ready_Intake extends CommandBase {
     public double time;
     public long endTime;
+    public double power;
 
-    public Auto_Dump_Down(double timeInMillis){
+    public Ready_Intake(double timeInMillis) {
         this.time = timeInMillis;
-        addRequirements(RobotContainer.Cargo);
+        addRequirements(RobotContainer.RotIntk);
     }
 
     // Called just before this Command runs the first time
     public void initialize() {
         long startTime = System.currentTimeMillis();
         endTime = (long) (startTime + this.time);
-        RobotContainer.Cargo.stopCargo();
     }
 
     // Called repeatedly when this Command is scheduled to run
     public void execute() {
-        RobotContainer.Cargo.toggleCargoDown();
+        RobotContainer.RotIntk.rotIntkIn();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,10 +31,12 @@ public class Auto_Dump_Down extends CommandBase{
 
     // Called once after isFinished returns true
     protected void end() {
-        RobotContainer.Cargo.stopCargo();
+        RobotContainer.RotIntk.rotIntkOut();
+        RobotContainer.RotIntk.rotIntkOff();
     }
 
     protected void interrupted() {
+        RobotContainer.RotIntk.rotIntkOff();
         end();
     }
 }

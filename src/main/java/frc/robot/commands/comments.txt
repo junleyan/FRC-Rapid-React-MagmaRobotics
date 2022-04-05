@@ -2,10 +2,6 @@ the nomenclature of all of the commands is messed up
 1. they do not match the actual name of our parts/structures, hence the comments on the top of those files
 2. there is some confusion on toggle/off/stop as well, as some things used a limit switch before, and was not updated
 
-also...
-auto dump does not work   :D
-it continues somehow after putting a wait command?
-
 generally i just feel bad for you if you have to read this code lol
 
 basically

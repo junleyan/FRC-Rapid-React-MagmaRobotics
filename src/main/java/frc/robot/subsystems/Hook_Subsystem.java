@@ -14,7 +14,7 @@ public class Hook_Subsystem extends SubsystemBase {
     }
     
     public void hookUp(){
-        hook.set(0.5);
+        hook.set(0.8);
     }
 
     public void hookOff(){
@@ -22,6 +22,6 @@ public class Hook_Subsystem extends SubsystemBase {
     }
 
     public void hookDown(){
-        hook.set(-0.5);
+        hook.set(-0.8);
     }
 }

@@ -21,6 +21,11 @@ public class Rotate_Intake_Out extends CommandBase {
     RobotContainer.RotIntk.rotIntkOut();
   }
 
+  @Override
+  public void end(boolean interrupted) {
+    RobotContainer.RotIntk.rotIntkOff();
+  }
+
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {

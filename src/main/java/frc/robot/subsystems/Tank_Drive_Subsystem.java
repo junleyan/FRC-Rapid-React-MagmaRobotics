@@ -24,10 +24,14 @@ public class Tank_Drive_Subsystem extends SubsystemBase {
     MotorR.set(0);
   }
 
-  public void tankDrive(double speedL, double speedR){
+  public void tankDrive(double speedL, double speedR) {
     diffDrive.tankDrive(
       speedL * Constants.LEFT_DRIVE_MULTIPLIER, 
       speedR * Constants.RIGHT_DRIVE_MULTIPLIER
       );
+  }
+
+  public void freeDrive(double speedL, double speedR) {
+    diffDrive.tankDrive(speedL, speedR);
   }
 }

@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -19,6 +21,7 @@ public class RobotContainer {
   JoystickButton m_d_face_a, m_d_face_b, m_d_face_x, m_d_face_y, m_d_bumper_left, m_d_bumper_right;
   JoystickButton m_p_face_a, m_p_face_b, m_p_face_x, m_p_face_y, m_p_bumper_left, m_p_bumper_right;
   POVButton m_dpad_up, m_dpad_down, m_dpad_left, m_dpad_right;
+  UsbCamera m_camera;
 
   public RobotContainer() {
     m_driveTrain = new DriveTrain();
@@ -47,6 +50,10 @@ public class RobotContainer {
     m_dpad_right = new POVButton(m_partner_controller, 90);
 
     m_driveTrain.setDefaultCommand(new DriveTrainCommand(m_driveTrain, m_driver_controller));
+    
+    m_camera = CameraServer.startAutomaticCapture();
+    m_camera.setResolution(640, 480);
+
     configureButtonBindings();
   }
 

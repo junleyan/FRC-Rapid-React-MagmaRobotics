@@ -13,13 +13,13 @@ import frc.robot.Constants;
 
 public class DriveTrain extends SubsystemBase {
 
-  private MotorController leftMotor, rightMotor;
+  private MotorController m_leftMotor, m_rightMotor;
   public DifferentialDrive diffDrive;
   
   public DriveTrain() {
-    leftMotor = new PWMSparkMax(Constants.PWM.leftDrive);
-    rightMotor = new PWMSparkMax(Constants.PWM.rightDrive);
-    diffDrive = new DifferentialDrive(leftMotor, rightMotor);
+    m_leftMotor = new PWMSparkMax(Constants.PWM.leftDrive);
+    m_rightMotor = new PWMSparkMax(Constants.PWM.rightDrive);
+    diffDrive = new DifferentialDrive(m_leftMotor, m_rightMotor);
   }
 
   public void stopMotor() {
@@ -38,16 +38,16 @@ public class DriveTrain extends SubsystemBase {
 
   // Set individual motors
   public void set(double leftSpeed, double rightSpeed) {
-    leftMotor.set(leftSpeed);
-    rightMotor.set(rightSpeed);
+    m_leftMotor.set(leftSpeed);
+    m_rightMotor.set(rightSpeed);
   }
 
   // Set individual voltage of motors
   public void setVoltage(double leftSpeed, double rightSpeed, double voltage) {
-    leftMotor.set(leftSpeed);
-    rightMotor.set(rightSpeed);
-    leftMotor.setVoltage(voltage);
-    rightMotor.setVoltage(voltage);
+    m_leftMotor.set(leftSpeed);
+    m_rightMotor.set(rightSpeed);
+    m_leftMotor.setVoltage(voltage);
+    m_rightMotor.setVoltage(voltage);
   }
 
 }

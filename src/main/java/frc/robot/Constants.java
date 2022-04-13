@@ -37,11 +37,9 @@ public final class Constants {
     public final class PWM { 
         public static final int leftDrive = 0;
         public static final int rightDrive = 1;
-        public static final int feed = 2;
-        public static final int rotateIntake = 3;
-        public static final int intake = 4;
-        public static final int hook = 5;
-        public static final int flyWheel = 6;
+        public static final int hook = 2;
+        public static final int indexer = 3;
+        public static final int flywheel = 4;
     }
 
     public final class Multiplier {

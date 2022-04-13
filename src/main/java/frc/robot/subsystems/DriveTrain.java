@@ -28,7 +28,7 @@ public class DriveTrain extends SubsystemBase {
 
   // Differential drive
   public void tankDrive(double leftSpeed, double rightSpeed) {
-    diffDrive.tankDrive(leftSpeed * Constants.Multiplier.leftDrive, rightSpeed * Constants.Multiplier.rightDrive);
+    diffDrive.tankDrive(-leftSpeed * Constants.Multiplier.leftDrive, rightSpeed * Constants.Multiplier.rightDrive);
   }
 
   // Differential drive without multiplier

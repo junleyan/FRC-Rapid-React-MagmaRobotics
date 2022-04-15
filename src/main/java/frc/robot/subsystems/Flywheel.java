@@ -18,7 +18,7 @@ public class Flywheel extends SubsystemBase {
   }
 
   public void flywheelOn() {
-    m_flywheel.set(1.0);
+    m_flywheel.set(0.5);
   }
 
   public void flywheelOff() {
@@ -26,7 +26,15 @@ public class Flywheel extends SubsystemBase {
   }
 
   public void flywheelReverse() {
-    m_flywheel.set(-1.0);
+    m_flywheel.set(-0.5);
+  }
+
+  public void set(double power){
+    m_flywheel.set(power);
+  }
+
+  public void stop() {
+    m_flywheel.disable();
   }
 
 }

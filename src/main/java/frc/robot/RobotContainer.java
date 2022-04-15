@@ -8,12 +8,19 @@ import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Flywheel;
 import frc.robot.subsystems.Hook;
 import frc.robot.subsystems.Indexer;
+import frc.robot.commands.auto.driveTrain.autoDrive;
+import frc.robot.commands.auto.flywheel.accelerateFlywheel;
+import frc.robot.commands.auto.flywheel.stopFlywheel;
+import frc.robot.commands.auto.indexer.indexerUp;
+import frc.robot.commands.auto.indexer.stopIndexer;
 import frc.robot.commands.teleop.drivetrain.DriveTrainCommand;
 import frc.robot.commands.teleop.flywheel.flywheelIn;
 import frc.robot.commands.teleop.flywheel.flywheelOff;
@@ -78,17 +85,30 @@ public class RobotContainer {
 
   private void configureButtonBindings() {
     // Driver bindings
-    m_d_face_a.whenPressed(new indexerIn(m_indexer));
-    m_d_face_a.whenReleased(new indexerOff(m_indexer));
+    m_d_face_y.whenPressed(new indexerIn(m_indexer));
+    m_d_face_y.whenReleased(new indexerOff(m_indexer));
 
-    m_d_face_b.whenPressed(new indexerOut(m_indexer));
-    m_d_face_b.whenReleased(new indexerOff(m_indexer));
+    m_d_face_x.whenPressed(new indexerOut(m_indexer));
+    m_d_face_x.whenReleased(new indexerOff(m_indexer));
 
-    m_d_face_x.whenPressed(new flywheelIn(m_flywheel));
-    m_d_face_x.whenReleased(new flywheelOff(m_flywheel));
+    m_d_face_a.whenPressed(new flywheelIn(m_flywheel));
+    m_d_face_a.whenReleased(new flywheelOff(m_flywheel));
 
-    m_d_face_y.whenPressed(new flywheelOut(m_flywheel));
-    m_d_face_y.whenReleased(new flywheelOff(m_flywheel));
+    m_d_face_b.whenPressed(new flywheelOut(m_flywheel));
+    m_d_face_b.whenReleased(new flywheelOff(m_flywheel));
+
+    //partner
+    m_p_face_y.whenPressed(new indexerIn(m_indexer));
+    m_p_face_y.whenReleased(new indexerOff(m_indexer));
+
+    m_p_face_x.whenPressed(new indexerOut(m_indexer));
+    m_p_face_x.whenReleased(new indexerOff(m_indexer));
+
+    m_p_face_a.whenPressed(new flywheelIn(m_flywheel));
+    m_p_face_a.whenReleased(new flywheelOff(m_flywheel));
+    
+    m_p_face_b.whenPressed(new flywheelOut(m_flywheel));
+    m_p_face_b.whenReleased(new flywheelOff(m_flywheel));
 
     m_dpad_up.whenPressed(new hookUp(m_hook));
     m_dpad_up.whenReleased(new hookOff(m_hook));
@@ -104,6 +124,14 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return null;
+    return new SequentialCommandGroup(
+      new accelerateFlywheel(m_flywheel, 2000),
+      new indexerUp(m_indexer, 2000),
+      new ParallelCommandGroup(
+        new stopIndexer(m_indexer),
+        new stopFlywheel(m_flywheel)
+      ),
+      new autoDrive(m_driveTrain, 3000, -0.55, -0.55)
+    );
   }
 }
